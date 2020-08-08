@@ -1,9 +1,16 @@
+const path = require('path');
+
 module.exports = {
   mode: 'development',
   devtool: 'inline-source-map',
   entry: './index.ts',
   output: {
-    filename: 'bundle.js',
+    path: path.resolve(__dirname, 'dist'),
+  },
+  devServer: {
+    contentBase: path.join(__dirname, 'dist'),
+    compress: true,
+    port: 9000,
   },
   resolve: {
     // Add `.ts` and `.tsx` as a resolvable extension.
